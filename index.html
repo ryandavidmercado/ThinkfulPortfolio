@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- The following two lines are standard meta tags to define our character set and page width. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan Mercado's Portfolio</title>
+    <!-- normalize.css is used to ensure cross-browser consistency and compatability. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <header>
+      <!-- Our header is split into two units - a div and a nav - to enable our CSS to arrange them either horizontally or vertically, depending on the size of the page, using flexbox. Additionally, the use of nav provides extra semantic information. -->
+      <div class="header-main">
+        <h1>Ryan Mercado</h1>
+        <h2>Software Engineering Student</h2>
+      </div>
+      <nav>
+        <!-- By assigning our articles unique ids, we allow these nav links to scroll to specific pieces of content automatically. -->
+        <a href="#intro" class="btn">Intro</a>
+        <a href="#about-me" class="btn">About</a>
+        <a href="#contact" class="btn">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Each article is grouped slightly differently, but follows the same logical layout. An h2 header provides the title, while content is split into paragraphs, lists, and/or subsections with individual h3 headers. -->
+      <article id="intro">
+        <!-- Again, we split our content into two units - an img and a div - to allow for horizontal/vertical arrangement based on the size of the page. Div is used in favor of section here because the arrangement purposes are purely vivsual; the photo would be semantically considered as part of the same section, and so the section tag is not used. -->
+        <img src="images/its-me.jpg" alt="Ryan Mercado" />
+        <div>
+          <h2>Ryan Mercado</h2>
+          <p>Hi! I'm Ryan Mercado, a software engineering student at Thinkful, and I'm currently based in West Melbourne, FL. My technical specialties include:</p>
+          <ol>
+            <li>HTML5/CSS3</li>
+            <li>JavaScript</li>
+            <li>React</li>
+          </ol>
+        </div>
+      </article>
+      
+      <!-- Hrs are used to provide line breaks between content. I chose to place hrs outside of the articles themselves for two reasons: code readability and distinction within the CSS. For example, if the following hr were placed within the prior article, it would be treated as an element of the flex container, creating issues when the items are arranged horizontally. -->
+      <hr>
+
+      <article id="about-me">
+        <h2>About Ryan</h2>
+        <p>I've held a great passion for computers, and web development in particular, from a very young age. Before CSS was in vogue, I found a DIY website textbook and HTML'd my heart out, creating my first site at the age of 9. That site is long gone now, which is probably good for my portfolio.</p>
+        <p>While I do still appreciate a good frontend design, my primary focus lies in backend development. The inner workings and endless possibilities of JavaScript fascinate me greatly, and I hope to create work that demonstrates both proficiency and passion.</p>
+        <p>When I'm not working for my education, I'm sometimes working for cash as a freelance transcriptionist. In the rare moments when I'm not doing either of these things, my hobbies include music production/recording, light gaming, and the occasional hike.</p>
+      </article>
+
+      <hr>
+
+      <article id="contact">
+        <h2>Contact</h2>
+        <!-- We group our two subsections - network and direct - into two distinct sections of the article. This provides semantic clarity, and the ability to individually address them within the CSS if needed -->
+        <section id="network">
+          <h3>Network</h3>
+          <ul>
+            <li><a class="btn" href="https://www.linkedin.com/in/ryan-mercado-065588148/">LinkedIn</a>
+            <li><a class="btn" href="https://github.com/ryandavidmercado">GitHub</a></li>
+          </ul>
+        </section>
+        <section id="direct">
+          <h3>Direct</h3>
+          <ul>
+            <!-- mailto and tel are used to provide direct links to the contact info provided. -->
+            <li><a class="btn" href="mailto:ryan86me@gmail.com">Email (ryan86me@gmail.com)</a></li>
+            <li><a class="btn" href="tel:813-625-7037">Phone (813-625-7037)</a></li>
+          </ul>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <!-- The &copy; namecode is used to display a copyright logo. -->
+      <p>&copy; Ryan Mercado</p>
+    </footer>
+  </body>
+</html>

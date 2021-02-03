@@ -1,0 +1,242 @@
+/* The @import imports the fonts I'm using from Google Fonts, using their standard Google Fonts API. */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Montserrat:wght@400;500&family=Roboto:wght@300&display=swap');
+
+
+/* The following two rules serve to reset box-sizing to border-box, for element alignment purposes. */
+
+html {
+  box-sizing: border-box;
+  /* Neat little trick to make nav scrolling more pleasant. */
+  scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #d9fff5;
+}
+
+/* HEADER */
+
+/* Forgive the ugliness of this header code. Flexbox is used so I can dynamically change the layout at the 900px breakpoint. The z-index ensures that the header displays over all other content in its fixed position. top: 0 ensures that the header stays fixed to the top of the page. Finally, align-items and justify-content are used to ensure that all elements are vertically and horizontally centered in both layouts.  */
+
+header {
+  background-color: #aad2ba;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  /* rgba is used for all box-shadows in this CSS. The alpha channel allows me to soften the shadows by blending them further into the content behind them. */
+  box-shadow: 0px 2px 5px rgba(0,0,0,.5);
+  padding: 0px 10px;
+  z-index: 1;
+  height: 150px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* flexbox is used to align our navigation elements horizontally. */
+
+nav {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+/* header-main contains the h1 and h2 with my name and role. The following rules ensure proper alignment. */
+
+.header-main h1, h2 {
+  margin: 0;
+}
+
+.header-main h1 {
+  margin-top: 10px;
+  margin-bottom: 3px;
+}
+
+.header-main {
+  text-align: center;
+  position: relative;
+}
+
+.header-main h2 {
+  font-weight: 400;
+}
+
+/* TEXT */
+
+h1 {
+  font-family: Fraunces, serif;
+  font-weight: 600;
+}
+
+h2, h3 {
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+}
+
+p, li {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+}
+
+
+/* BUTTONS */
+
+nav .btn {
+  /* Spaces out the buttons in our header. */
+  margin: 0px 5px;
+}
+
+.btn {
+  background-color: #6b8f71;
+  color: #d9fff5;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px -3px rgba(0,0,0,.3);
+  text-align: center;
+  height: 35px;
+  line-height: 15px;
+  font-family: serif;
+}
+
+/* The hover and active elements are used to provide a certain amount of visual interactivity to our nav buttons. */
+
+.btn:hover {
+  background-color: #1d1e18;
+}
+
+.btn:active {
+  transform: scale(95%);
+}
+
+/* MAIN */
+
+main {
+  /* margin: auto centers our main content horizontally. */
+  margin: auto;
+  /* The top margin is used to push our content below the header, which, due to its fixed position, is not located in the HTML's flow. */
+  margin-top: 170px;
+  width: 90%;
+}
+
+img {
+  margin: 20px auto;
+  display: block;
+  border-radius: 3px;
+  border: #1d1e18 solid 2px;
+  box-shadow: 0px 0px 35px 3px rgba(0,0,0,.3);
+}
+
+/* Fixes scroll links to account for fixed header. Neat trick! */
+#intro, #about-me, #contact {
+  scroll-margin-top: 160px;
+}
+
+/* Styles our horizontal rulers */
+hr {
+  margin: 20px 0px;
+  border-color: #6b8f71;
+}
+
+/* Sets our intro section as a flexbox so that we can align vertically on taller screens and horizontally on wider screens. */
+
+#intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+/* LISTS */
+
+ul, ol {
+  /* Fixes our alignment when using lists. */
+  margin-bottom: 0;
+}
+
+/* Sets our contact lists to flex so that they can display horizontally. However, we display vertically by default for smaller screens, only going horizontal in the 900px breakpoint.*/
+#contact ol, #contact ul {
+  list-style-position: inside;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Our padding ensures that buttons are properly spaced out, whether in vertical or horizontal arrangement. */
+#contact li {
+  padding-right: 10px;
+  padding-bottom: 30px;
+  width: auto;
+}
+
+/* FOOTER */
+footer {
+  /* Flexbox is used to vertically center the text. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  background-color: #6b8f71;
+  color: #d9fff5;
+  margin-bottom: 0;
+  width: 100%;
+  margin-top: 30px;
+}
+
+footer p {
+  margin: 0;
+  text-align: center;
+}
+
+/* BREAKPOINTS */
+
+/* The media query here is used to adjust the layout of the header, and the alignment of its elements, for windows wider than 799px.  Additionally, the query adjusts our intro section to display horizontally on these wider screens. The main rule is used to adjust the margin of main for the smaller header used in this state. */
+
+@media only screen and (min-width: 800px) {
+  header {
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px 5px;
+    height: 100px;
+  }
+  .header-main h1 {
+    margin-top: 0;
+  }
+  .header-main {
+    margin-right: 15px;
+  }
+  nav {
+    margin: 0;
+    align-self: center;
+  }
+  main {
+    margin-top: 120px;
+  }
+  /* Adjusts our scroll link fix for the decreased size of the header. */
+  #intro, #about-me, #contact {
+    scroll-margin-top: 110px;
+  }
+  #intro {
+    flex-direction: row;
+  }
+  /* Sets our image to scale based on page width on wider screens. */
+  img {
+    width: 25vw;
+    max-width: 346px;
+    height: auto;
+    margin-right: 15px;
+  }
+  #about-me, #contact {
+    width: 90%;
+    margin: auto;
+  }
+  #contact ol, #contact ul {
+    flex-direction: row;
+  }
+}
