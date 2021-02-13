@@ -1,6 +1,5 @@
 /* The @import imports the fonts I'm using from Google Fonts, using their standard Google Fonts API. */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Montserrat:wght@400;500&family=Roboto:wght@300&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Montserrat:wght@400;500&family=Roboto:wght@300&display=swap");
 
 /* The following two rules serve to reset box-sizing to border-box, for element alignment purposes. */
 
@@ -10,7 +9,9 @@ html {
   scroll-behavior: smooth;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -30,7 +31,7 @@ header {
   flex-direction: column;
   top: 0;
   /* rgba is used for all box-shadows in this CSS. The alpha channel allows me to soften the shadows by blending them further into the content behind them. */
-  box-shadow: 0px 2px 5px rgba(0,0,0,.5);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
   padding: 0px 10px;
   z-index: 1;
   height: 150px;
@@ -48,7 +49,8 @@ nav {
 
 /* header-main contains the h1 and h2 with my name and role. The following rules ensure proper alignment. */
 
-.header-main h1, h2 {
+.header-main h1,
+h2 {
   margin: 0;
 }
 
@@ -73,16 +75,17 @@ h1 {
   font-weight: 600;
 }
 
-h2, h3 {
+h2,
+h3 {
   font-family: Montserrat, sans-serif;
   font-weight: 500;
 }
 
-p, li {
+p,
+li {
   font-family: Roboto, sans-serif;
   font-weight: 300;
 }
-
 
 /* BUTTONS */
 
@@ -93,14 +96,15 @@ nav .btn {
 
 .btn {
   background-color: #6b8f71;
+  display: inline-block;
   color: #d9fff5;
   padding: 10px;
   text-decoration: none;
   border-radius: 10px;
-  box-shadow: 0px 5px 10px -3px rgba(0,0,0,.3);
+  box-shadow: 0px 5px 10px -3px rgba(0, 0, 0, 0.3);
   text-align: center;
-  height: 35px;
-  line-height: 15px;
+  height: auto;
+  word-wrap: break-word;
   font-family: serif;
 }
 
@@ -122,6 +126,7 @@ main {
   /* The top margin is used to push our content below the header, which, due to its fixed position, is not located in the HTML's flow. */
   margin-top: 170px;
   width: 90%;
+  padding-bottom: 7px;
 }
 
 img {
@@ -129,12 +134,14 @@ img {
   display: block;
   border-radius: 3px;
   border: #1d1e18 solid 2px;
-  box-shadow: 0px 0px 35px 3px rgba(0,0,0,.3);
+  box-shadow: 0px 0px 35px 3px rgba(0, 0, 0, 0.3);
   max-width: 95%;
 }
 
 /* Fixes scroll links to account for fixed header. Neat trick! */
-#intro, #about-me, #contact {
+#intro,
+#about-me,
+#contact {
   scroll-margin-top: 160px;
 }
 
@@ -142,6 +149,13 @@ img {
 hr {
   margin: 20px 0px;
   border-color: #6b8f71;
+}
+
+#contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 /* Sets our intro section as a flexbox so that we can align vertically on taller screens and horizontally on wider screens. */
@@ -154,32 +168,58 @@ hr {
   margin: 0;
 }
 
+h3 {
+  text-align: center;
+  margin-top: 0;
+}
+
 /* LISTS */
 
-ul, ol {
+ul,
+ol {
   /* Fixes our alignment when using lists. */
   margin-bottom: 0;
 }
 
 /* Sets our contact lists to flex so that they can display horizontally. However, we display vertically by default for smaller screens, only going horizontal in the 900px breakpoint.*/
-#contact ol, #contact ul {
+#contact ol,
+#contact ul {
   list-style-position: inside;
   padding-left: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 200px;
 }
 
 /* Our padding ensures that buttons are properly spaced out, whether in vertical or horizontal arrangement. */
 #contact li {
-  padding-right: 10px;
-  padding-bottom: 30px;
+  padding: 5px;
   width: auto;
+}
+
+#network,
+#direct {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 15px;
+  margin: 10px 5px;
+  margin-top: 0;
+}
+
+#contact h2 {
+  text-align: center;
 }
 
 /* FOOTER */
 footer {
   /* Flexbox is used to vertically center the text. */
   display: flex;
+  position: relative;
+  bottom: 0;
   align-items: center;
   justify-content: center;
   height: 30px;
@@ -187,7 +227,6 @@ footer {
   color: #d9fff5;
   margin-bottom: 0;
   width: 100%;
-  margin-top: 30px;
 }
 
 footer p {
@@ -220,7 +259,9 @@ footer p {
     margin-top: 120px;
   }
   /* Adjusts our scroll link fix for the decreased size of the header. */
-  #intro, #about-me, #contact {
+  #intro,
+  #about-me,
+  #contact {
     scroll-margin-top: 110px;
   }
   #intro {
@@ -233,11 +274,9 @@ footer p {
     margin-right: 15px;
     max-width: 346px;
   }
-  #about-me, #contact {
+  #about-me,
+  #contact {
     width: 90%;
     margin: auto;
-  }
-  #contact ol, #contact ul {
-    flex-direction: row;
   }
 }
